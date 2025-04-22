@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { KafkaProducerService } from './kafka/kafka-producer.service';
+import {SchedulerTask } from './tasks/order-complete.task';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
-  imports: [],
   controllers: [AppController],
-  providers: [AppService],
+  imports: [ScheduleModule.forRoot()],
+  providers: [SchedulerTask, KafkaProducerService],
 })
 export class AppModule {}
