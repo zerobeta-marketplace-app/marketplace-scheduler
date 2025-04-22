@@ -11,7 +11,7 @@ export class SchedulerTask {
   // Runs every 10 minutes
   @Cron('*/10 * * * *')
   async handleCron() {
-    this.logger.log('⏰ Triggering order completion task via Kafka');
+    this.logger.log('Triggering order completion task via Kafka');
     await this.kafka.emit('order.mark-completed', { action: 'mark-completed' });
   }
 }

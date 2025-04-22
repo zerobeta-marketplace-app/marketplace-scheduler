@@ -8,6 +8,6 @@ import { ScheduleModule } from '@nestjs/schedule';
 @Module({
   controllers: [AppController],
   imports: [ScheduleModule.forRoot()],
-  providers: [SchedulerTask, KafkaProducerService],
+  providers: [AppService , SchedulerTask, KafkaProducerService],
 })
 export class AppModule {}
